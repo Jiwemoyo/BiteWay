@@ -1,0 +1,37 @@
+/* src/styles/Header.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #276860; /* Color secundario */
+    padding: 20px;
+    color: #FFF5E7; /* Color primario claro */
+  }
+  
+  .header-logo h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .header-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header-nav li {
+    font-size: 18px;
+  }
+  
+  .header-nav a {
+    text-decoration: none;
+    color: #FFF5E7; /* Color claro */
+    font-weight: bold;
+  }
+  
+  .header-nav a:hover {
+    color: #F6A44D; /* Color de hover */
+  }
+  

@@ -1,0 +1,24 @@
+/* src/styles/Location.css */
+.location {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #FFF5E7; /* Color primario claro */
+  }
+  
+  .location h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .map-container {
+    margin: 20px 0;
+    overflow: hidden;
+  }
+  
+  .map-container iframe {
+    width: 100%;
+    max-width: 800px; /* Ajuste para pantallas grandes */
+    height: 450px;
+    border: none;
+  }
+  

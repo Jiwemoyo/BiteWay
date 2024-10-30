@@ -1,0 +1,43 @@
+/* src/styles/Contact.css */
+.contact {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #FFF5E7; /* Color primario claro */
+  }
+  
+  .contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    max-width: 400px; /* Ajuste para pantallas grandes */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #276860; /* Color secundario */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #F6A44D; /* Color para el efecto hover */
+  }
+  

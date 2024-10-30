@@ -1,0 +1,31 @@
+/* src/styles/Footer.css */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #276860; /* Color secundario */
+    color: white;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
