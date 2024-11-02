@@ -1,51 +1,84 @@
+/* General Styles */
 .home {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 100px 20px;
-  background-image: url('fondoComida.jpg'); /* Imagen destacada */
+  gap: 30px;
   background-size: cover;
   background-position: center;
-  color: #FFF5E7;
+  height: 100vh; /* Centrado vertical */
 }
 
-.home::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Capa oscura */
-  z-index: 1;
-}
-
-.home-banner {
-  position: relative;
-  z-index: 2; /* Asegura que el texto esté sobre la capa oscura */
-}
-
-.home-banner h1 {
-  font-size: 48px;
+/* Logo */
+.biteWayLogo-home {
+  max-width: 15%;
+  min-width: 10%;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para el texto */
+  transition: transform 0.3s ease; /* Transición suave para otros efectos */
 }
 
-.home-banner p {
-  font-size: 24px;
-  margin-bottom: 30px;
+/* Animación de tambaleo */
+.biteWayLogo-home:hover {
+  animation: shake 0.5s; /* Aplica la animación en hover */
+  animation-iteration-count: 1; /* Se ejecuta una vez cada vez que el cursor pasa */
 }
 
-.reserve-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  color: #FFF;
-  background-color: #FF5733; /* Color vibrante */
+/* Keyframes para el tambaleo */
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+/* Contact and Social Section */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Button Style */
+/* Button Style */
+.button-contact {
+  background-color: var(--secondary-color);
+  font-family: var(--font-title);
+  width: 400px;
+  font-size: 30px;
+  color: var(--primary-color-light);
+  padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.reserve-button:hover {
-  background-color: #C70039; /* Color al pasar el mouse */
+/* Hover Effect (colores invertidos) */
+.button-contact:hover {
+  background-color: var(--primary-color-light); /* Fondo: color principal claro */
+  color: var(--secondary-color-light); /* Texto: color secundario claro */
+}
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-links li {
+  font-size: 2rem;
+}
+
+.social-links a {
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
 }

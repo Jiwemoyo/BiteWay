@@ -11,7 +11,6 @@ import { Contact } from "./pages/Contact";
 function App() {
   return (
     <div className='world'>
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="menu" element={<Menu />} />
@@ -19,7 +18,6 @@ function App() {
         <Route path="location" element={<Location />} />
         <Route path="contact" element={<Contact />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

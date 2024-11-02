@@ -1,20 +1,33 @@
 import React from "react";
+import { FaFacebook, FaTwitter, FaUtensils } from "react-icons/fa"; // Íconos de Font Awesome
 import "../styles/Home.css";
 
 export const Home = () => {
   return (
-    <>
-      <section className="home">
-        <div className="home-banner">
-          <h1>¡Bienvenidos a Bite Way!</h1>
-          <p>
-            <strong>Donde cada bocado cuenta una historia.</strong>
-            Disfruta de la mejor experiencia gastronómica en un ambiente acogedor, 
-            lleno de sabores auténticos y momentos inolvidables.
-          </p>
-          <button className="reserve-button">Reserva tu mesa</button>
-        </div>
-      </section>
-    </>
+    <section className="home">
+      <img src="bitewayicon.png" alt="BiteWay Logo" className="biteWayLogo-home" />
+      
+      <div className="contact-section">
+        <button className="button-contact">Contáctanos</button>
+        
+        <ul className="social-links">
+          <li>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <FaFacebook size={35} /> {/* Tamaño ajustable */}
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <FaTwitter size={35} />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">
+              <FaUtensils size={35} />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
   );
 };
