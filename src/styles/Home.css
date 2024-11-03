@@ -85,7 +85,6 @@
 .social-links a:hover {
   color: var(--primary-color); /* Cambia el color al pasar el ratón */
 }
-
 /* Posicionamiento de los enlaces */
 .link-left, .link-right, .link-bottom {
   position: fixed;
@@ -97,6 +96,7 @@
   padding: 10px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 20px; /* Añade un margen general alrededor de los enlaces */
 }
 
 .link-left:hover, .link-right:hover, .link-bottom:hover {
@@ -107,20 +107,20 @@
 /* Posiciona el enlace a la izquierda */
 .link-left {
   top: 50%;
-  left: 10px;
+  left: 100px; /* Margen a la izquierda */
   transform: translateY(-50%);
 }
 
 /* Posiciona el enlace a la derecha */
 .link-right {
   top: 50%;
-  right: 10px;
+  right: 100px; /* Margen a la derecha */
   transform: translateY(-50%);
 }
 
 /* Posiciona el enlace en la parte inferior */
 .link-bottom {
-  bottom: 10px;
+  bottom: 100px; /* Margen inferior */
   left: 50%;
   transform: translateX(-50%);
 }

@@ -1,6 +1,4 @@
 import './styles/App.css'
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Menu } from "./pages/Menu";

@@ -1,4 +1,10 @@
-<section className="home">
+import React from "react";
+import { FaFacebook, FaTwitter, FaUtensils } from "react-icons/fa"; // Íconos de Font Awesome
+import "../styles/Home.css";
+
+export const Home = () => {
+  return (
+    <section className="home">
   <img src="bitewayicon.png" alt="biteWayLogo" className="biteWayLogo-home" />
   <div className="buttons-contact-home">
     <button className="button-contact">Contáctanos</button>
@@ -26,3 +32,6 @@
   <a href="#" className="link-right">Enlace Derecha</a>
   <a href="#" className="link-bottom">Enlace Abajo</a>
 </section>
+
+  );
+};
