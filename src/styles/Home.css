@@ -1,4 +1,4 @@
-/* General Styles */
+/* Estilos de la sección Home */
 .home {
   display: flex;
   flex-direction: column;
@@ -33,35 +33,38 @@
   75% { transform: rotate(3deg); }
   100% { transform: rotate(0deg); }
 }
-/* Contact and Social Section */
-.contact-section {
+
+/* Estilos de los botones de contacto */
+.buttons-contact-home {
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  color: black;
+  gap: 30px; 
 }
 
-/* Button Style */
-/* Button Style */
+/* Estilos del botón de contacto */
 .button-contact {
   background-color: var(--secondary-color);
   font-family: var(--font-title);
   width: 400px;
   font-size: 30px;
-  color: var(--primary-color-light);
+  color: white;
   padding: 10px;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover Effect (colores invertidos) */
+/* Hover del botón de contacto con colores invertidos */
 .button-contact:hover {
   background-color: var(--primary-color-light); /* Fondo: color principal claro */
   color: var(--secondary-color-light); /* Texto: color secundario claro */
 }
-/* Social Links */
+
+/* Estilos de los enlaces sociales */
 .social-links {
   display: flex;
   gap: 30px;
@@ -80,5 +83,44 @@
 }
 
 .social-links a:hover {
+  color: var(--primary-color); /* Cambia el color al pasar el ratón */
+}
+
+/* Posicionamiento de los enlaces */
+.link-left, .link-right, .link-bottom {
+  position: fixed;
   color: var(--primary-color);
+  font-size: 20px;
+  text-decoration: none;
+  font-family: var(--font-title);
+  background-color: var(--secondary-color-light);
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link-left:hover, .link-right:hover, .link-bottom:hover {
+  background-color: var(--primary-color-light);
+  color: var(--secondary-color);
+}
+
+/* Posiciona el enlace a la izquierda */
+.link-left {
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+/* Posiciona el enlace a la derecha */
+.link-right {
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* Posiciona el enlace en la parte inferior */
+.link-bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
