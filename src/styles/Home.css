@@ -1,56 +1,78 @@
-/* Estilos de la sección Home */
+/* Estilos base de la sección Home */
 .home {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 30px;
+  position: relative;
   height: 100vh;
-  position: relative; /* Importante para el posicionamiento del pseudo-elemento */
-  z-index: 1; /* Asegura que el contenido esté por encima del fondo */
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  z-index: 1;
 }
+
+/* Fondo con efecto sepia */
 .home::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  right: 0;  /* Cambiado de left a right */
   width: 100%;
   height: 100%;
   background-image: url('BCollage.png');
   background-size: cover;
-  background-position: center;
+  background-position: center right;  /* Alineamos a la derecha */
   background-repeat: no-repeat;
   filter: sepia(80%) brightness(105%) contrast(90%); 
-  opacity: 0.8; /* Ajustado para mejor visibilidad del efecto sepia */
+  opacity: 0.8;
   z-index: -1;
+  transition: all 0.5s ease-in-out;
+  transform-origin: right center;  /* El punto de origen de la transformación será desde la derecha */
 }
 
-/* El resto del contenido permanecerá sin filtros */
+.home.menu-open::before {
+  width: 50%;
+}
+
+/* Contenedor principal */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+/* Estado cuando el menú está abierto */
+.home.menu-open .content-wrapper {
+  width: 50%;
+  margin-left: 50%;
+}
+
+/* Aseguramos que los elementos estén por encima del fondo */
 .biteWayLogo-home,
 .buttons-contact-home,
 .link-left,
 .link-right,
 .link-bottom {
   position: relative;
-  z-index: 2; /* Asegura que estos elementos estén por encima del fondo */
+  z-index: 2;
 }
 
-/* Logo */
+/* Estilos del Logo */
 .biteWayLogo-home {
   max-width: 15%;
   min-width: 10%;
   margin-bottom: 20px;
-  transition: transform 0.3s ease; /* Transición suave para otros efectos */
+  transition: transform 0.3s ease;
 }
 
-/* Animación de tambaleo */
+/* Animación de tambaleo del logo */
 .biteWayLogo-home:hover {
-  animation: shake 0.5s; /* Aplica la animación en hover */
-  animation-iteration-count: 1; /* Se ejecuta una vez cada vez que el cursor pasa */
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
 }
 
-/* Keyframes para el tambaleo */
 @keyframes shake {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(5deg); }
@@ -59,17 +81,17 @@
   100% { transform: rotate(0deg); }
 }
 
-/* Estilos de los botones de contacto */
+/* Contenedor de botones de contacto */
 .buttons-contact-home {
   width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: black;
-  gap: 30px; 
+  gap: 30px;
 }
 
-/* Estilos del botón de contacto */
+/* Botón de contacto */
 .button-contact {
   background-color: var(--secondary-color);
   font-family: var(--font-title);
@@ -83,7 +105,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-/* Hover del botón de contacto con colores invertidos */
+
 .button-contact:hover {
   background-color: var(--primary-color-light);
   color: var(--secondary-color-light);
@@ -91,7 +113,7 @@
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilos de los enlaces sociales */
+/* Enlaces sociales */
 .social-links {
   display: flex;
   gap: 30px;
@@ -103,7 +125,6 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
 }
-
 
 .social-links li {
   font-size: 2rem;
@@ -118,13 +139,11 @@
   padding: 10px;
 }
 
-
 .social-links a:hover {
-  color: var(--secondary-color-light); /* Cambia el color al pasar el ratón */
+  color: var(--secondary-color-light);
 }
 
-
-/* Posicionamiento de los enlaces */
+/* Estilos base para los enlaces de navegación */
 .link-left,
 .link-right,
 .link-bottom {
@@ -145,43 +164,42 @@
   transition: all 0.3s ease;
 }
 
-/* Posiciona el enlace a la izquierda */
+/* Posicionamiento específico de cada enlace */
 .link-left {
   top: 50%;
-  left: 100px; /* Margen a la izquierda */
+  left: 100px;
   transform: translateY(-50%);
+  
 }
 
-/* Posiciona el enlace a la derecha */
 .link-right {
   top: 50%;
-  right: 100px; /* Margen a la derecha */
+  right: 100px;
   transform: translateY(-50%);
 }
 
-/* Posiciona el enlace en la parte inferior */
 .link-bottom {
-  bottom: 50px; /* Margen inferior */
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-
-.link-left,
-.link-right,
-.link-bottom {
-  transition: all 0.3s ease;
+.home.menu-open .link-left {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
+/* Efectos hover para los enlaces */
 .link-left:hover,
 .link-right:hover,
 .link-bottom:hover {
   background-color: var(--secondary-color);
   color: var(--primary-color);
   border-radius: 50%;
-  padding: 30px; /* Aumenta el padding para que crezcan */
+  padding: 30px;
 }
 
+/* Flechas en hover */
 .link-left:hover:before,
 .link-right:hover:before,
 .link-bottom:hover:before {
@@ -216,3 +234,113 @@
   border-color: var(--secondary-color) transparent transparent transparent;
 }
 
+/* Estilos del menú */
+.menu-content {
+  position: fixed;  /* Cambiado de absolute a fixed */
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background-color: var(--primary-color);
+  padding: 2rem;
+  transition: all 0.5s ease-in-out;
+  overflow-y: auto;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+.home.menu-open .content-wrapper {
+  width: 50%;
+  margin-left: 50%;
+}
+
+.home.menu-open .menu-content {
+  left: 0;
+}
+
+/* Estilos de las categorías del menú */
+.menu-category {
+  margin-bottom: 2rem;
+}
+
+.menu-category h3 {
+  color: var(--secondary-color);
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 0.5rem;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: var(--secondary-color);
+  font-family: var(--font-text);
+}
+
+.item-name {
+  font-size: 1.1rem;
+}
+
+.item-price {
+  font-weight: bold;
+}
+
+/* Ajustes para los enlaces cuando el menú está abierto */
+.home.menu-open .link-left {
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.home.menu-open .link-right {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home.menu-open .link-bottom {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .home.menu-open .content-wrapper {
+    width: 100%;
+    margin-left: 100%;
+  }
+
+  .menu-content {
+    width: 100%;
+    left: -100%;
+  }
+
+  .home.menu-open .menu-content {
+    width: 100%;
+  }
+
+  .button-contact {
+    width: 300px;
+    font-size: 24px;
+  }
+
+  .link-left,
+  .link-right {
+    left: 20px;
+    right: 20px;
+  }
+
+  .biteWayLogo-home {
+    max-width: 30%;
+  }
+}
