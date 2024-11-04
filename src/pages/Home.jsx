@@ -1,5 +1,6 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaUtensils } from "react-icons/fa"; // Íconos de Font Awesome
+import { FaFacebook, FaTwitter, FaUtensils, FaUtensilSpoon, FaImage, FaMapMarkerAlt } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaArrowDown } from 'react-icons/fa'
 import "../styles/Home.css";
 
 export const Home = () => {
@@ -28,9 +29,19 @@ export const Home = () => {
   </div>
 
   {/* Añadir los tres enlaces aquí */}
-  <a href="#" className="link-left">Enlace Izquierda</a>
-  <a href="#" className="link-right">Enlace Derecha</a>
-  <a href="#" className="link-bottom">Enlace Abajo</a>
+  <a href="#" className="link-left">
+  <FaUtensilSpoon size={40} />
+  <span>Menú</span>
+  </a>
+  <a href="#" className="link-right">
+  <FaImage size={40} />
+  <span>Galería</span>
+  </a>
+  <a href="#" className="link-bottom">
+  <FaMapMarkerAlt size={40} />
+  <span>Ubicación</span>
+  </a>
+
 </section>
 
   );
