@@ -86,19 +86,6 @@ export const Home = () => {
         ))}
       </div>
 
-      {/* Galería Derecha */}
-      <div className="gallery-content">
-        <h2>Nuestra Galería</h2>
-        <div className="gallery-grid">
-          {galleryItems.map((item) => (
-            <div key={item.id} className="gallery-item">
-              <img src={`/api/placeholder/300/200`} alt={item.title} />
-              <h3>{item.title}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Botones de navegación */}
       <a href="#" className="link-left" onClick={(e) => {
         e.preventDefault();
