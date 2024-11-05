@@ -5,6 +5,7 @@ import "../styles/Home.css";
 
 export const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [galleryOpen, setGalleryOpen] = useState(false);
 
   const menuItems = [
     {
@@ -30,8 +31,36 @@ export const Home = () => {
     }
   ];
 
+  const galleryItems = [
+    { 
+      id: 1,
+      title: "Plato 1",
+      image: "plato1.jpg",
+      description: "Deliciosa pasta fresca"
+    },
+    { 
+      id: 2,
+      title: "Plato 2",
+      image: "plato2.jpg",
+      description: "Ensalada mediterránea"
+    },
+    // Añade más imágenes según necesites
+  ];
+
+  const handleMenuClick = (e) => {
+    e.preventDefault();
+    setGalleryOpen(false); // Cierra la galería si está abierta
+    setMenuOpen(!menuOpen);
+  };
+
+  const handleGalleryClick = (e) => {
+    e.preventDefault();
+    setMenuOpen(false); // Cierra el menú si está abierto
+    setGalleryOpen(!galleryOpen);
+  };
+
   return (
-    <section className={`home ${menuOpen ? 'menu-open' : ''}`}>
+    <section className={`home ${menuOpen ? 'menu-open' : ''} ${galleryOpen ? 'gallery-open' : ''}`}>
       <div className="content-wrapper">
         <img src="bitewayicon.png" alt="biteWayLogo" className="biteWayLogo-home" />
         <div className="buttons-contact-home">
@@ -71,14 +100,26 @@ export const Home = () => {
         ))}
       </div>
 
-      <a href="#" className="link-left" onClick={(e) => {
-        e.preventDefault();
-        setMenuOpen(!menuOpen);
-      }}>
+      <div className="gallery-content">
+        <h2>Nuestra Galería</h2>
+        <div className="gallery-grid">
+          {galleryItems.map((item) => (
+            <div key={item.id} className="gallery-item">
+              <img src={item.image} alt={item.title} />
+              <div className="gallery-item-info">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <a href="#" className="link-left" onClick={handleMenuClick}>
         <FaUtensilSpoon size={40} />
         <span>Menú</span>
       </a>
-      <a href="#" className="link-right">
+      <a href="#" className="link-right" onClick={handleGalleryClick}>
         <FaImage size={40} />
         <span>Galería</span>
       </a>
