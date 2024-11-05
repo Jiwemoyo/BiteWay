@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import { 
-  FaFacebook, 
-  FaTwitter, 
-  FaUtensils, 
-  FaUtensilSpoon, 
-  FaImage, 
-  FaMapMarkerAlt,
-  FaTimes 
-} from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaUtensils, FaUtensilSpoon, FaImage, FaMapMarkerAlt } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaArrowDown } from 'react-icons/fa';
+import "../styles/Home.css";
 
 export const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [galleryOpen, setGalleryOpen] = useState(false);
 
   const menuItems = [
     {
@@ -37,15 +30,8 @@ export const Home = () => {
     }
   ];
 
-  const galleryItems = [
-    { id: 1, title: "Plato 1", image: "plato1.jpg" },
-    { id: 2, title: "Plato 2", image: "plato2.jpg" },
-    { id: 3, title: "Plato 3", image: "plato3.jpg" },
-    { id: 4, title: "Plato 4", image: "plato4.jpg" },
-  ];
-
   return (
-    <section className={`home ${menuOpen ? 'menu-open' : ''} ${galleryOpen ? 'gallery-open' : ''}`}>
+    <section className={`home ${menuOpen ? 'menu-open' : ''}`}>
       <div className="content-wrapper">
         <img src="bitewayicon.png" alt="biteWayLogo" className="biteWayLogo-home" />
         <div className="buttons-contact-home">
@@ -70,7 +56,6 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* Menú Izquierdo */}
       <div className="menu-content">
         <h2>Nuestro Menú</h2>
         {menuItems.map((category, index) => (
@@ -86,25 +71,17 @@ export const Home = () => {
         ))}
       </div>
 
-      {/* Botones de navegación */}
       <a href="#" className="link-left" onClick={(e) => {
         e.preventDefault();
         setMenuOpen(!menuOpen);
-        if (galleryOpen) setGalleryOpen(false);
       }}>
-        {menuOpen ? <FaTimes size={40} /> : <FaUtensilSpoon size={40} />}
-        <span>{menuOpen ? 'Cerrar' : 'Menú'}</span>
+        <FaUtensilSpoon size={40} />
+        <span>Menú</span>
       </a>
-
-      <a href="#" className="link-right" onClick={(e) => {
-        e.preventDefault();
-        setGalleryOpen(!galleryOpen);
-        if (menuOpen) setMenuOpen(false);
-      }}>
-        {galleryOpen ? <FaTimes size={40} /> : <FaImage size={40} />}
-        <span>{galleryOpen ? 'Cerrar' : 'Galería'}</span>
+      <a href="#" className="link-right">
+        <FaImage size={40} />
+        <span>Galería</span>
       </a>
-
       <a href="#" className="link-bottom">
         <FaMapMarkerAlt size={40} />
         <span>Ubicación</span>
