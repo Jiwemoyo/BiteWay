@@ -1,4 +1,4 @@
-/* Estilos base de la sección Home */
+/* 1. Estilos base de la sección Home */
 .home {
   display: flex;
   position: relative;
@@ -8,32 +8,29 @@
   z-index: 1;
 }
 
-/* Fondo con efecto sepia */
 .home::before {
   content: "";
   position: fixed;
   top: 0;
-  right: 0; 
+  right: 0;
   width: 100%;
   height: 100%;
   background-image: url('BCollage.png');
   background-size: cover;
-  background-position: center right;  /* Alineamos a la derecha */
-  background-repeat: no-repeat;
-  filter: sepia(80%) brightness(105%) contrast(90%); 
+  background-position: center right;
+  filter: sepia(80%) brightness(105%) contrast(90%);
   opacity: 0.8;
   z-index: -1;
   transition: all 0.5s ease-in-out;
-  transform-origin: right center;  /* El punto de origen de la transformación será desde la derecha */
+  transform-origin: right center;
 }
 
 .home.menu-open::before {
   width: 50%;
-  right: 0;  
+  right: 0;
   transform-origin: right center;
 }
 
-/* Contenedor principal */
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -45,13 +42,11 @@
   z-index: 2;
 }
 
-/* Estado cuando el menú está abierto */
 .home.menu-open .content-wrapper {
   width: 50%;
   margin-left: 50%;
 }
 
-/* Aseguramos que los elementos estén por encima del fondo */
 .biteWayLogo-home,
 .buttons-contact-home,
 .link-left,
@@ -61,7 +56,6 @@
   z-index: 2;
 }
 
-/* Estilos del Logo */
 .biteWayLogo-home {
   max-width: 15%;
   min-width: 10%;
@@ -69,7 +63,6 @@
   transition: transform 0.3s ease;
 }
 
-/* Animación de tambaleo del logo */
 .biteWayLogo-home:hover {
   animation: shake 0.5s;
   animation-iteration-count: 1;
@@ -83,7 +76,6 @@
   100% { transform: rotate(0deg); }
 }
 
-/* Contenedor de botones de contacto */
 .buttons-contact-home {
   width: auto;
   display: flex;
@@ -93,7 +85,6 @@
   gap: 30px;
 }
 
-/* Botón de contacto */
 .button-contact {
   background-color: var(--secondary-color);
   font-family: var(--font-title);
@@ -115,7 +106,6 @@
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Enlaces sociales */
 .social-links {
   display: flex;
   gap: 30px;
@@ -145,7 +135,7 @@
   color: var(--secondary-color-light);
 }
 
-/* Estilos base para los enlaces de navegación */
+/* 2. Estilos para los enlaces de navegación */
 .link-left,
 .link-right,
 .link-bottom {
@@ -166,12 +156,10 @@
   transition: all 0.3s ease;
 }
 
-/* Posicionamiento específico de cada enlace */
 .link-left {
   top: 50%;
   left: 100px;
   transform: translateY(-50%);
-  
 }
 
 .link-right {
@@ -191,7 +179,6 @@
   color: var(--primary-color);
 }
 
-/* Efectos hover para los enlaces */
 .link-left:hover,
 .link-right:hover,
 .link-bottom:hover {
@@ -201,7 +188,6 @@
   padding: 30px;
 }
 
-/* Flechas en hover */
 .link-left:hover:before,
 .link-right:hover:before,
 .link-bottom:hover:before {
@@ -246,7 +232,7 @@
 
 .link-left.open:before,
 .link-right.open:before {
-  display: none; /* Eliminar las flechas */
+  display: none;
 }
 
 .link-left.open span,
@@ -255,9 +241,9 @@
   font-weight: bold;
 }
 
-/* Estilos del menú */
+/* 3. Estilos para el menú */
 .menu-content {
-  position: fixed;  /* Cambiado de absolute a fixed */
+  position: fixed;
   left: -50%;
   width: 50%;
   height: 100%;
@@ -265,17 +251,15 @@
   padding: 2rem;
   transition: all 0.5s ease-in-out;
   overflow-y: auto;
+  padding: 100px 100px;
+  text-align: start;
 }
 
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  transition: all 0.5s ease-in-out;
-  position: relative;
-  z-index: 2;
+.menu-content h2 {
+  font-family: var(--font-title);
+  font-size: 50px;
+  margin-bottom: 36px;
+  color: var(--secondary-color);
 }
 
 .home.menu-open .content-wrapper {
@@ -287,7 +271,6 @@
   left: 0;
 }
 
-/* Estilos de las categorías del menú */
 .menu-category {
   margin-bottom: 2rem;
 }
@@ -318,7 +301,6 @@
   font-weight: bold;
 }
 
-/* Ajustes para los enlaces cuando el menú está abierto */
 .home.menu-open .link-left {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -334,41 +316,10 @@
   pointer-events: none;
 }
 
-/* Ajustes responsive */
-@media (max-width: 768px) {
-  .home.menu-open .content-wrapper {
-    width: 100%;
-    margin-left: 100%;
-  }
-
-  .menu-content {
-    width: 100%;
-    left: -100%;
-  }
-
-  .home.menu-open .menu-content {
-    width: 100%;
-  }
-
-  .button-contact {
-    width: 300px;
-    font-size: 24px;
-  }
-
-  .link-left,
-  .link-right {
-    left: 20px;
-    right: 20px;
-  }
-
-  .biteWayLogo-home {
-    max-width: 30%;
-  }
-}
-
+/* 4. Estilos para la galería */
 .home.gallery-open::before {
   width: 50%;
-  right: 50%;  /* Mueve el fondo hacia la izquierda */
+  right: 50%;
   transform-origin: left center;
 }
 
@@ -381,14 +332,13 @@
   width: 50%;
 }
 
-/* Estilos de la galería */
 .gallery-content {
   position: fixed;
   right: -50%;
   width: 50%;
   height: 100%;
   background-color: var(--primary-color);
-  padding: 2rem;
+  padding: 3rem;
   transition: all 0.5s ease-in-out;
   overflow-y: auto;
 }
@@ -397,7 +347,13 @@
   right: 0;
 }
 
-/* Grid de la galería */
+.gallery-content h2 {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -447,10 +403,9 @@
 .gallery-item-info p {
   margin: 0;
   font-size: 0.9rem;
-  font-family: var(--font-text);
+  font-family: var(--font -text);
 }
 
-/* Ajustes para los enlaces cuando la galería está abierta */
 .home.gallery-open .link-right {
   right: 50%;
   transform: translateX(50%) translateY(-50%);
@@ -466,71 +421,7 @@
   pointer-events: none;
 }
 
-/* Ajustes responsive para la galería */
-@media (max-width: 768px) {
-  .home.gallery-open .content-wrapper {
-    width: 100%;
-    margin-right: 100%;
-  }
-
-  .gallery-content {
-    width: 100%;
-    right: -100%;
-  }
-
-  .home.gallery-open .gallery-content {
-    width: 100%;
-  }
-}
-
-/* Agrega al CSS existente */
-
-/* Estilos para la sección de ubicación */
-.location-content {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--primary-color);
-  padding: 2rem;
-  transition: all 0.5s ease-in-out;
-  overflow-y: auto;
-  backdrop-filter: blur(5px);
-  background-color: rgba(255, 255, 255, 0.9);
-  transform: translateY(100%);
-}
-
-.home.location-open .location-content {
-  transform: translateY(0);
-}
-
-/* Ajustes para los enlaces cuando la ubicación está abierta */
-.home.location-open .link-bottom {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.home.location-open .link-left,
-.home.location-open .link-right {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Ajustes responsive */
-@media (max-width: 768px) {
-  .location-content {
-    padding: 1rem;
-  }
-}
-
-.home.location-open .content-wrapper,
-.home.location-open .biteWayLogo-home,
-.home.location-open .buttons-contact-home {
-  display: none;
-}
-
-/* Estilos para la sección de ubicación */
+/* 5. Estilos para la sección de ubicación */
 .location-content {
   position: fixed;
   top: 0;
@@ -550,7 +441,6 @@
   transform: translateY(0);
 }
 
-/* Estilo para el botón de cierre */
 .close-button {
   position: absolute;
   top: 1rem;
@@ -578,16 +468,28 @@
   display: none;
 }
 
-/* Ajustes responsive */
+/* 6. Estilos responsivos */
 @media (max-width: 768px) {
-  .location-content {
-    padding: 1rem;
-  }
+  /* Estilos específicos para pantallas más pequeñas */
+}
 
-  .close-button {
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 40px;
-    height: 40px;
-  }
+.home.location-open .content-wrapper,
+.home.location-open .biteWayLogo-home,
+.home.location-open .buttons-contact-home,
+.home.location-open .link-left,
+.home.location-open .link-right,
+.home.location-open .link-bottom {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home.location-open .content-wrapper,
+.home.location-open .biteWayLogo-home,
+.home.location-open .buttons-contact-home,
+.home.location-open .link-left,
+.home.location-open .link-right,
+.home.location-open .link-bottom {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }

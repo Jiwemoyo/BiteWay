@@ -50,7 +50,6 @@ export const Home = () => {
   const handleContactFormClose = () => {
     setShowContactForm(false);
   };
-
   return (
     <section className={`home ${menuOpen ? 'menu-open' : ''} ${galleryOpen ? 'gallery-open' : ''} ${locationOpen ? 'location-open' : ''}`}>
       {/* Wrapper general que se oculta cuando la ubicación está abierta */}
@@ -59,6 +58,7 @@ export const Home = () => {
         
         {/* Botones de contacto que se ocultan cuando la ubicación está abierta */}
         <div className={`buttons-contact-home ${locationOpen ? 'hidden' : ''}`}>
+          {/* Botones de contacto y enlaces sociales */}
           <button className="button-contact" onClick={handleContactClick}>Contáctanos</button>
           <ul className="social-links">
             <li>
@@ -79,31 +79,31 @@ export const Home = () => {
           </ul>
         </div>
       </div>
-
+  
       {/* Muestra el formulario de contacto si showContactForm es true */}
       {showContactForm && <Contact onClose={handleContactFormClose} />}
-
+  
       {/* Contenido del menú */}
-      <Menu/>
-
+      <Menu />
+  
       {/* Contenido de la galería */}
-      <Gallery/>
-
+      <Gallery />
+  
       {/* Contenido de la ubicación */}
-      <Location isOpen={locationOpen} onClose={handleLocationClose}/>
-
+      <Location isOpen={locationOpen} onClose={handleLocationClose} />
+  
       {/* Botón del menú */}
       <a href="#" className={`link-left ${menuOpen ? 'open' : ''}`} onClick={handleMenuClick}>
         {menuOpen ? <FaTimes size={40} /> : <FaUtensilSpoon size={40} />}
         <span>{menuOpen ? 'Cerrar' : 'Menú'}</span>
       </a>
-
+  
       {/* Botón de la galería */}
       <a href="#" className={`link-right ${galleryOpen ? 'open' : ''}`} onClick={handleGalleryClick}>
         {galleryOpen ? <FaTimes size={40} /> : <FaImage size={40} />}
         <span>{galleryOpen ? 'Cerrar' : 'Galería'}</span>
       </a>
-
+  
       {/* Botón de la ubicación */}
       <a href="#" className={`link-bottom ${locationOpen ? 'open' : ''}`} onClick={handleLocationClick}>
         {locationOpen ? <FaTimes size={40} /> : <FaMapMarkerAlt size={40} />}
@@ -111,6 +111,7 @@ export const Home = () => {
       </a>
     </section>
   );
+  
 };
 
 export default Home;
