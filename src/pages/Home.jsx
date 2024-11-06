@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FaFacebook, FaTwitter, FaUtensils, FaUtensilSpoon, FaImage, FaMapMarkerAlt, FaTimes } from "react-icons/fa";
 import "../styles/Home.css";
+import { Contact } from "./Contact";
 
 export const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [locationOpen, setLocationOpen] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
 
   // Función para manejar el clic en el menú
   const handleMenuClick = (e) => {
@@ -36,6 +38,16 @@ export const Home = () => {
     setLocationOpen(false);
   };
 
+  // Función para manejar el clic en el botón "Contáctanos"
+  const handleContactClick = () => {
+    setShowContactForm(true);
+  };
+
+  // Función para cerrar el formulario de contacto
+  const handleContactFormClose = () => {
+    setShowContactForm(false);
+  };
+
   return (
     <section className={`home ${menuOpen ? 'menu-open' : ''} ${galleryOpen ? 'gallery-open' : ''} ${locationOpen ? 'location-open' : ''}`}>
       {/* Wrapper general que se oculta cuando la ubicación está abierta */}
@@ -44,7 +56,7 @@ export const Home = () => {
         
         {/* Botones de contacto que se ocultan cuando la ubicación está abierta */}
         <div className={`buttons-contact-home ${locationOpen ? 'hidden' : ''}`}>
-          <button className="button-contact">Contáctanos</button>
+          <button className="button-contact" onClick={handleContactClick}>Contáctanos</button>
           <ul className="social-links">
             <li>
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
@@ -64,6 +76,9 @@ export const Home = () => {
           </ul>
         </div>
       </div>
+
+      {/* Muestra el formulario de contacto si showContactForm es true */}
+      {showContactForm && <Contact onClose={handleContactFormClose} />}
 
       {/* Contenido del menú */}
       <div className="menu-content">
