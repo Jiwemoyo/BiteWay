@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FaFacebook, FaTwitter, FaUtensils, FaUtensilSpoon, FaImage, FaMapMarkerAlt } from "react-icons/fa";
-import { FaArrowLeft, FaArrowRight, FaArrowDown } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaUtensils, FaUtensilSpoon, FaImage, FaMapMarkerAlt, FaTimes } from "react-icons/fa";
 import "../styles/Home.css";
 
 export const Home = () => {
@@ -115,13 +114,13 @@ export const Home = () => {
         </div>
       </div>
 
-      <a href="#" className="link-left" onClick={handleMenuClick}>
-        <FaUtensilSpoon size={40} />
-        <span>Menú</span>
+      <a href="#" className={`link-left ${menuOpen ? 'open' : ''}`} onClick={handleMenuClick}>
+        {menuOpen ? <FaTimes size={40} /> : <FaUtensilSpoon size={40} />}
+        <span>{menuOpen ? 'Cerrar' : 'Menú'}</span>
       </a>
-      <a href="#" className="link-right" onClick={handleGalleryClick}>
-        <FaImage size={40} />
-        <span>Galería</span>
+      <a href="#" className={`link-right ${galleryOpen ? 'open' : ''}`} onClick={handleGalleryClick}>
+        {galleryOpen ? <FaTimes size={40} /> : <FaImage size={40} />}
+        <span>{galleryOpen ? 'Cerrar' : 'Galería'}</span>
       </a>
       <a href="#" className="link-bottom">
         <FaMapMarkerAlt size={40} />

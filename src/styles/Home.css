@@ -236,6 +236,25 @@
   border-color: var(--secondary-color) transparent transparent transparent;
 }
 
+.link-left.open,
+.link-right.open {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-radius: 50%;
+  padding: 30px;
+}
+
+.link-left.open:before,
+.link-right.open:before {
+  display: none; /* Eliminar las flechas */
+}
+
+.link-left.open span,
+.link-right.open span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
 /* Estilos del menú */
 .menu-content {
   position: fixed;  /* Cambiado de absolute a fixed */
