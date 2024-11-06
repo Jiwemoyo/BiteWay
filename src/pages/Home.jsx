@@ -5,64 +5,45 @@ import "../styles/Home.css";
 export const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [galleryOpen, setGalleryOpen] = useState(false);
+  const [locationOpen, setLocationOpen] = useState(false);
 
-  const menuItems = [
-    {
-      category: "Entradas",
-      items: [
-        { name: "Ensalada César", price: "$8.99" },
-        { name: "Sopa del Día", price: "$6.99" },
-      ]
-    },
-    {
-      category: "Platos Principales",
-      items: [
-        { name: "Pasta Alfredo", price: "$14.99" },
-        { name: "Salmón Grillado", price: "$18.99" },
-      ]
-    },
-    {
-      category: "Postres",
-      items: [
-        { name: "Tiramisú", price: "$6.99" },
-        { name: "Cheesecake", price: "$5.99" },
-      ]
-    }
-  ];
-
-  const galleryItems = [
-    { 
-      id: 1,
-      title: "Plato 1",
-      image: "plato1.jpg",
-      description: "Deliciosa pasta fresca"
-    },
-    { 
-      id: 2,
-      title: "Plato 2",
-      image: "plato2.jpg",
-      description: "Ensalada mediterránea"
-    },
-    // Añade más imágenes según necesites
-  ];
-
+  // Función para manejar el clic en el menú
   const handleMenuClick = (e) => {
     e.preventDefault();
-    setGalleryOpen(false); // Cierra la galería si está abierta
-    setMenuOpen(!menuOpen);
+    setGalleryOpen(false); // Cierra la galería
+    setLocationOpen(false); // Cierra la ubicación
+    setMenuOpen(!menuOpen); // Abre/cierra el menú
   };
 
+  // Función para manejar el clic en la galería
   const handleGalleryClick = (e) => {
     e.preventDefault();
-    setMenuOpen(false); // Cierra el menú si está abierto
-    setGalleryOpen(!galleryOpen);
+    setMenuOpen(false); // Cierra el menú
+    setLocationOpen(false); // Cierra la ubicación
+    setGalleryOpen(!galleryOpen); // Abre/cierra la galería
+  };
+
+  // Función para manejar el clic en la ubicación
+  const handleLocationClick = (e) => {
+    e.preventDefault();
+    setMenuOpen(false); // Cierra el menú
+    setGalleryOpen(false); // Cierra la galería
+    setLocationOpen(!locationOpen); // Abre/cierra la ubicación
+  };
+
+  // Función para cerrar la ubicación desde el botón de cierre
+  const handleLocationClose = () => {
+    setLocationOpen(false);
   };
 
   return (
-    <section className={`home ${menuOpen ? 'menu-open' : ''} ${galleryOpen ? 'gallery-open' : ''}`}>
-      <div className="content-wrapper">
-        <img src="bitewayicon.png" alt="biteWayLogo" className="biteWayLogo-home" />
-        <div className="buttons-contact-home">
+    <section className={`home ${menuOpen ? 'menu-open' : ''} ${galleryOpen ? 'gallery-open' : ''} ${locationOpen ? 'location-open' : ''}`}>
+      {/* Wrapper general que se oculta cuando la ubicación está abierta */}
+      <div className={`content-wrapper ${locationOpen ? 'hidden' : ''}`}>
+        <img src="bitewayicon.png" alt="biteWayLogo" className={`biteWayLogo-home ${locationOpen ? 'hidden' : ''}`} />
+        
+        {/* Botones de contacto que se ocultan cuando la ubicación está abierta */}
+        <div className={`buttons-contact-home ${locationOpen ? 'hidden' : ''}`}>
           <button className="button-contact">Contáctanos</button>
           <ul className="social-links">
             <li>
@@ -84,47 +65,53 @@ export const Home = () => {
         </div>
       </div>
 
+      {/* Contenido del menú */}
       <div className="menu-content">
         <h2>Nuestro Menú</h2>
-        {menuItems.map((category, index) => (
-          <div key={index} className="menu-category">
-            <h3>{category.category}</h3>
-            {category.items.map((item, itemIndex) => (
-              <div key={itemIndex} className="menu-item">
-                <span className="item-name">{item.name}</span>
-                <span className="item-price">{item.price}</span>
-              </div>
-            ))}
-          </div>
-        ))}
+        {/* Muestra categorías del menú */}
       </div>
 
+      {/* Contenido de la galería */}
       <div className="gallery-content">
         <h2>Nuestra Galería</h2>
-        <div className="gallery-grid">
-          {galleryItems.map((item) => (
-            <div key={item.id} className="gallery-item">
-              <img src={item.image} alt={item.title} />
-              <div className="gallery-item-info">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Muestra elementos de la galería */}
       </div>
 
+      {/* Contenido de la ubicación */}
+      <div className="location-content">
+        <button className="close-button" onClick={handleLocationClose}>
+          <FaTimes size={40} />
+          <span>Cerrar</span>
+        </button>
+        <h2>Nuestra Ubicación</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9977565!3d40.7179525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1169%3A0x49466eb56f44f15a!2sGrand%20Central%20Terminal!5e0!3m2!1sen!2sus!4v1612280695424!5m2!1sen!2sus"
+          width="100%"
+          height="400"
+          frameBorder="0"
+          style={{ border: 0 }}
+          allowFullScreen
+          aria-hidden="false"
+          tabIndex="0"
+        ></iframe>
+      </div>
+
+      {/* Botón del menú */}
       <a href="#" className={`link-left ${menuOpen ? 'open' : ''}`} onClick={handleMenuClick}>
         {menuOpen ? <FaTimes size={40} /> : <FaUtensilSpoon size={40} />}
         <span>{menuOpen ? 'Cerrar' : 'Menú'}</span>
       </a>
+
+      {/* Botón de la galería */}
       <a href="#" className={`link-right ${galleryOpen ? 'open' : ''}`} onClick={handleGalleryClick}>
         {galleryOpen ? <FaTimes size={40} /> : <FaImage size={40} />}
         <span>{galleryOpen ? 'Cerrar' : 'Galería'}</span>
       </a>
-      <a href="#" className="link-bottom">
-        <FaMapMarkerAlt size={40} />
-        <span>Ubicación</span>
+
+      {/* Botón de la ubicación */}
+      <a href="#" className={`link-bottom ${locationOpen ? 'open' : ''}`} onClick={handleLocationClick}>
+        {locationOpen ? <FaTimes size={40} /> : <FaMapMarkerAlt size={40} />}
+        <span>{locationOpen ? 'Cerrar' : 'Ubicación'}</span>
       </a>
     </section>
   );

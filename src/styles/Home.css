@@ -482,3 +482,112 @@
     width: 100%;
   }
 }
+
+/* Agrega al CSS existente */
+
+/* Estilos para la sección de ubicación */
+.location-content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  padding: 2rem;
+  transition: all 0.5s ease-in-out;
+  overflow-y: auto;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(100%);
+}
+
+.home.location-open .location-content {
+  transform: translateY(0);
+}
+
+/* Ajustes para los enlaces cuando la ubicación está abierta */
+.home.location-open .link-bottom {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home.location-open .link-left,
+.home.location-open .link-right {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .location-content {
+    padding: 1rem;
+  }
+}
+
+.home.location-open .content-wrapper,
+.home.location-open .biteWayLogo-home,
+.home.location-open .buttons-contact-home {
+  display: none;
+}
+
+/* Estilos para la sección de ubicación */
+.location-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  padding: 2rem;
+  transition: all 0.5s ease-in-out;
+  overflow-y: auto;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(100%);
+}
+
+.home.location-open .location-content {
+  transform: translateY(0);
+}
+
+/* Estilo para el botón de cierre */
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.close-button:hover {
+  transform: scale(1.1);
+}
+
+.close-button span {
+  display: none;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .location-content {
+    padding: 1rem;
+  }
+
+  .close-button {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
