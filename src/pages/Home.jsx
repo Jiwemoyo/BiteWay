@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { FaFacebook, FaTwitter, FaUtensils, FaUtensilSpoon, FaImage, FaMapMarkerAlt, FaTimes } from "react-icons/fa";
 import "../styles/Home.css";
 import { Contact } from "./Contact";
+import { Gallery } from "./Gallery";
+import { Location } from "./Location";
+import { Menu } from "./Menu";
 
 export const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -81,35 +84,13 @@ export const Home = () => {
       {showContactForm && <Contact onClose={handleContactFormClose} />}
 
       {/* Contenido del menú */}
-      <div className="menu-content">
-        <h2>Nuestro Menú</h2>
-        {/* Muestra categorías del menú */}
-      </div>
+      <Menu/>
 
       {/* Contenido de la galería */}
-      <div className="gallery-content">
-        <h2>Nuestra Galería</h2>
-        {/* Muestra elementos de la galería */}
-      </div>
+      <Gallery/>
 
       {/* Contenido de la ubicación */}
-      <div className="location-content">
-        <button className="close-button" onClick={handleLocationClose}>
-          <FaTimes size={40} />
-          <span>Cerrar</span>
-        </button>
-        <h2>Nuestra Ubicación</h2>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9977565!3d40.7179525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1169%3A0x49466eb56f44f15a!2sGrand%20Central%20Terminal!5e0!3m2!1sen!2sus!4v1612280695424!5m2!1sen!2sus"
-          width="100%"
-          height="400"
-          frameBorder="0"
-          style={{ border: 0 }}
-          allowFullScreen
-          aria-hidden="false"
-          tabIndex="0"
-        ></iframe>
-      </div>
+      <Location isOpen={locationOpen} onClose={handleLocationClose}/>
 
       {/* Botón del menú */}
       <a href="#" className={`link-left ${menuOpen ? 'open' : ''}`} onClick={handleMenuClick}>
