@@ -4,11 +4,11 @@ const galleryImages = [
     alt: "deliciosos burritos",
   },
   {
-    src: "hamburguesa.png",
+    src: "burritos.png",
     alt: "Descripción de la imagen 2",
   },
   {
-    src: "pizza.png",
+    src: "burritos.png",
     alt: "Descripción de la imagen 2",
   },
   // Agrega más imágenes aquí
