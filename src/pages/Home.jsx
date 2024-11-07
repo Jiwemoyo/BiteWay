@@ -15,25 +15,25 @@ export const Home = () => {
   // Función para manejar el clic en el menú
   const handleMenuClick = (e) => {
     e.preventDefault();
-    setGalleryOpen(false); // Cierra la galería
-    setLocationOpen(false); // Cierra la ubicación
-    setMenuOpen(!menuOpen); // Abre/cierra el menú
+    setGalleryOpen(false);
+    setLocationOpen(false);
+    setMenuOpen(!menuOpen);
   };
 
   // Función para manejar el clic en la galería
   const handleGalleryClick = (e) => {
     e.preventDefault();
-    setMenuOpen(false); // Cierra el menú
-    setLocationOpen(false); // Cierra la ubicación
-    setGalleryOpen(!galleryOpen); // Abre/cierra la galería
+    setMenuOpen(false);
+    setLocationOpen(false);
+    setGalleryOpen(!galleryOpen);
   };
 
   // Función para manejar el clic en la ubicación
   const handleLocationClick = (e) => {
     e.preventDefault();
-    setMenuOpen(false); // Cierra el menú
-    setGalleryOpen(false); // Cierra la galería
-    setLocationOpen(!locationOpen); // Abre/cierra la ubicación
+    setMenuOpen(false);
+    setGalleryOpen(false);
+    setLocationOpen(!locationOpen);
   };
 
   // Función para cerrar la ubicación desde el botón de cierre
@@ -50,12 +50,14 @@ export const Home = () => {
   const handleContactFormClose = () => {
     setShowContactForm(false);
   };
+
   return (
-    <section className={`home ${menuOpen ? 'menu-open' : ''} ${galleryOpen ? 'gallery-open' : ''} ${locationOpen ? 'location-open' : ''}`}>
+    <section
+      className={`home ${menuOpen ? 'menu-open' : ''} ${galleryOpen ? 'gallery-open' : ''} ${locationOpen ? 'location-open' : ''}`}
+    >
       {/* Wrapper general que se oculta cuando la ubicación está abierta */}
       <div className={`content-wrapper ${locationOpen ? 'hidden' : ''}`}>
         <img src="bitewayicon.png" alt="biteWayLogo" className={`biteWayLogo-home ${locationOpen ? 'hidden' : ''}`} />
-        
         {/* Botones de contacto que se ocultan cuando la ubicación está abierta */}
         <div className={`buttons-contact-home ${locationOpen ? 'hidden' : ''}`}>
           {/* Botones de contacto y enlaces sociales */}
@@ -79,31 +81,31 @@ export const Home = () => {
           </ul>
         </div>
       </div>
-  
+
       {/* Muestra el formulario de contacto si showContactForm es true */}
       {showContactForm && <Contact onClose={handleContactFormClose} />}
-  
+
       {/* Contenido del menú */}
       <Menu />
-  
+
       {/* Contenido de la galería */}
       <Gallery />
-  
+
       {/* Contenido de la ubicación */}
       <Location isOpen={locationOpen} onClose={handleLocationClose} />
-  
+
       {/* Botón del menú */}
       <a href="#" className={`link-left ${menuOpen ? 'open' : ''}`} onClick={handleMenuClick}>
         {menuOpen ? <FaTimes size={40} /> : <FaUtensilSpoon size={40} />}
         <span>{menuOpen ? 'Cerrar' : 'Menú'}</span>
       </a>
-  
+
       {/* Botón de la galería */}
       <a href="#" className={`link-right ${galleryOpen ? 'open' : ''}`} onClick={handleGalleryClick}>
         {galleryOpen ? <FaTimes size={40} /> : <FaImage size={40} />}
         <span>{galleryOpen ? 'Cerrar' : 'Galería'}</span>
       </a>
-  
+
       {/* Botón de la ubicación */}
       <a href="#" className={`link-bottom ${locationOpen ? 'open' : ''}`} onClick={handleLocationClick}>
         {locationOpen ? <FaTimes size={40} /> : <FaMapMarkerAlt size={40} />}
@@ -111,7 +113,6 @@ export const Home = () => {
       </a>
     </section>
   );
-  
 };
 
 export default Home;
