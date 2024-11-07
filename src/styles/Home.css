@@ -516,6 +516,11 @@
     max-width: 50%;
     margin-bottom: 20px;
   }
+  .gallery-content {
+    width: 100%;
+    right: -100%;
+    z-index: 10;
+  }
 
   .buttons-contact-home {
     width: 90%;
@@ -540,15 +545,17 @@
   }
   
   .link-left {
-    top: 80%;
+    top: 90%;
     left: 100px;
     transform: translateY(-50%);
+    z-index: 10;
   }
   
   .link-right {
-    top: 80%;
+    top: 90%;
     right: 100px;
     transform: translateY(-50%);
+    z-index: 10;
   }
   
   .link-bottom {
@@ -560,6 +567,7 @@
   .menu-content {
     width: 100%;
     left: -100%;
+    z-index: 3;
   }
 
   .home.menu-open .menu-content {
