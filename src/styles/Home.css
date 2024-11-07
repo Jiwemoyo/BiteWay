@@ -504,4 +504,112 @@
   transition: opacity 0.3s ease;
 }
 
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .biteWayLogo-home {
+    max-width: 50%;
+    margin-bottom: 20px;
+  }
+
+  .buttons-contact-home {
+    width: 90%;
+    gap: 20px;
+  }
+
+  .button-contact {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .social-links {
+    padding: 10px 20px;
+  }
+
+  .link-left,
+  .link-right,
+  .link-bottom {
+    font-size: 16px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .link-left {
+    top: 80%;
+    left: 100px;
+    transform: translateY(-50%);
+  }
+  
+  .link-right {
+    top: 80%;
+    right: 100px;
+    transform: translateY(-50%);
+  }
+  
+  .link-bottom {
+    bottom: 20px;
+    transform: translateX(-50%);
+  }
+  
+  /* Ajusta el menú para pantallas pequeñas */
+  .menu-content {
+    width: 100%;
+    left: -100%;
+  }
+
+  .home.menu-open .menu-content {
+    left: 0;
+  }
+
+  .menu-content h2 {
+    font-size: 30px;
+  }
+}
+
+/* Estilos para pantallas medianas (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .home.menu-open .content-wrapper {
+    width: 70%;
+    margin-left: 30%;
+  }
+
+  .biteWayLogo-home {
+    max-width: 20%;
+  }
+
+  .buttons-contact-home {
+    width: 70%;
+  }
+
+  .button-contact {
+    font-size: 25px;
+  }
+
+  .social-links {
+    gap: 20px;
+  }
+
+  .link-left,
+  .link-right,
+  .link-bottom {
+    font-size: 18px;
+  }
+
+  .menu-content {
+    width: 70%;
+    left: -70%;
+  }
+
+  .home.menu-open .menu-content {
+    left: 0;
+  }
+
+  .menu-content h2 {
+    font-size: 40px;
+  }
+}
